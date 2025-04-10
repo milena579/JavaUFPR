@@ -1,5 +1,3 @@
-package T02;
-
 import java.util.Scanner;
 
 // Construa um programa que leia os coeficientes de uma equação do segundo grau do teclado e mostre os valores de x da equação; 
@@ -27,12 +25,11 @@ public class EquaSegundoGrau {
 
         double delta = Math.pow(b, 2) - 4 * a * c;
 
-        if(delta >= 0){
+        if (delta >= 0){
             double x1 = (-b + Math.sqrt(delta)) / (2 * a);
             double x2 = (-b - Math.sqrt(delta)) / (2 * a);
 
             System.out.printf("As raízes da equação são: x1 = %.2f e x2 = %.2f%n", x1, x2);
-
         }
 
         else {

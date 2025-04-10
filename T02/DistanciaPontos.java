@@ -1,5 +1,3 @@
-package T02;
-
 import java.util.Scanner;
 
 // Construa um programa que leia do teclado dois pontos em um plano (x,y) e informe a distância entre eles.
