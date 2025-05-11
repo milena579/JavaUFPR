@@ -1,46 +1,103 @@
-// 2. (Tarefa 5) Escreva a estrutura de uma classe (atributos e métodos) para
-// representar um aluno (nome, matricula, curso, período,
-// disciplinasMatriculadas(array de String) e endereço):
+package T05.Universidade;
 
-// a. Compile a classe;
+public class Aluno {
+    private String nome;
+    private String matricula;
+    private String curso;
+    private int periodo;
+    private String[] disciplinasMatriculadas;
+    private String endereco;
+    private final int idade;
+    private final int quantidadeDisciplinasPermitidadas;
+    private int contadorDisciplinas = 0;
 
-// b. Crie um construtor para essa classe com a seguinte assinatura:
-// public Aluno(String nome, String matricula, String curso, int periodo, int idade,
-// int quantidadeDisciplinasPermitidadas)
-// Onde a quantidadeDisciplinasPermitidadas representa a quantidade de
-// disciplinas que o aluno pode se matricular. Deve ser utilizada para
-// redimensionar o array de Strings.
+    public Aluno(String nome, String matricula, String curso, int periodo, int idade, int quantidadeDisciplinasPermitidadas) {
+        this.nome = nome;
+        this.matricula = matricula;
+        this.curso = curso;
+        this.periodo = periodo;
+        this.idade = idade;
+        this.quantidadeDisciplinasPermitidadas = quantidadeDisciplinasPermitidadas;
+        this.disciplinasMatriculadas = new String[quantidadeDisciplinasPermitidadas];
+    }
 
-// c. Acrescente três métodos:
-//  String fazMatricula(String disciplina): inclui uma disciplina no array de
-// Strings. Se o aluno já ultrapassou a quantidade de disciplinas que
-// pode se matricular, então o sistema retorna para este método uma
-// string informando: “Quantidade de disciplinas excedida. O limite de
-// disciplinas para este aluno é de 2 disciplina(s). Se desejar, cancele a
-// matrícula de uma das disciplinas e faça a nova matrícula.”
-// Se o aluno não puder ser matriculado em nenhuma disciplina
-// (tamanho do array=0), então o método deve retornar: “Este aluno não
-// pode ser matriculado em nenhuma disciplina, por favor, fale com a
-// secretaria.”
-// Se foi matriculado com sucesso a seguinte String é retornada:
-// “Matrícula na disciplina “LPOO” executada.”
+    public String getNome() {
+        return nome;
+    }
 
-//  String cancelarMatricula(String disciplina): exclui a disciplina do array
-// de Strings. Se o aluno não estiver matriculado na disciplina, o método
-// deve retornar: “Aluno não está matriculado na disciplina LPOO,
-// portanto não é possível cancelar esta matrícula.”. Se o aluno
-// realmente estiver matriculado na disciplina, então o método deve
-// retornar “Cancelamento da matrícula da disciplina LPOO executado
-// com sucesso.”
+    public String getMatricula() {
+        return matricula;
+    }
 
-//  String imprime(): Método que retorna uma String de forma legível com
-// todos os atributos de aluno e as disciplinas matriculadas no seguinte
-// formato:
-// -----------------------------------------------------------------
-// Nome do Aluno: Rafael Romualdo Wandresen
-// Matricula: GRR20130101
-// Curso: TADS
-// Periodo: 4
-// Disciplinas Matriculadas: Gestão de Projetos; LPOO
-// -----------------------------------------------------------------
+    public String getCurso() {
+        return curso;
+    }
 
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public String[] getDisciplinasMatriculadas() {
+        return disciplinasMatriculadas;
+    }
+
+    public void setDisciplinasMatriculadas(String[] disciplinasMatriculadas) {
+        this.disciplinasMatriculadas = disciplinasMatriculadas;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public int getQuantidadeDisciplinasPermitidadas() {
+        return quantidadeDisciplinasPermitidadas;
+    }
+
+    public String fazMatricula(String disciplina) {
+        if (quantidadeDisciplinasPermitidadas == 0) {
+            return "Este aluno não pode ser matriculado em nenhuma disciplina, por favor, fale com a secretaria.";
+        } else if (contadorDisciplinas >= quantidadeDisciplinasPermitidadas) {
+            return "Quantidade de disciplinas excedida. O limite de disciplinas para este aluno é de " +
+                    quantidadeDisciplinasPermitidadas + " disciplina(s). Se desejar, cancele a matrícula de uma das disciplinas e faça a nova matrícula.";
+        } else {
+            disciplinasMatriculadas[contadorDisciplinas] = disciplina;
+            contadorDisciplinas++;
+            return "Matrícula realizada com sucesso na disciplina: " + disciplina;
+        }
+    }
+
+    public String cancelarMatricula(String disciplina) {
+        for (int i = 0; i < contadorDisciplinas; i++) {
+            if (disciplinasMatriculadas[i].equals(disciplina)) {
+                for (int j = i; j < contadorDisciplinas - 1; j++) {
+                    disciplinasMatriculadas[j] = disciplinasMatriculadas[j + 1];
+                }
+                disciplinasMatriculadas[contadorDisciplinas - 1] = null;
+                contadorDisciplinas--;
+                return "Cancelamento da matrícula da disciplina " + disciplina + " executado com sucesso.";
+            }
+        }
+        return "Aluno não está matriculado na disciplina " + disciplina + ", portanto não é possível cancelar esta matrícula.";
+    }
+
+    public String imprime() {
+        StringBuilder disciplinas = new StringBuilder();
+        for (int i = 0; i < contadorDisciplinas; i++) {
+            disciplinas.append("- ").append(disciplinasMatriculadas[i]).append("\n");
+        }
+
+        return 
+            "Aluno: " + nome + "\n" +
+            "Idade: " + idade + "\n" +
+            "Matrícula: " + matricula + "\n" +
+            "Curso: " + curso + "\n" +
+            "Período: " + periodo + "\n" +
+            "Endereço: " + endereco + "\n" +
+            "Qtd disciplinas permitidas: " + quantidadeDisciplinasPermitidadas + "\n" +
+            "Disciplinas:\n" + disciplinas.toString();
+    }
+}
