@@ -1,3 +1,4 @@
+package T05;
 
 import java.util.Scanner;
 

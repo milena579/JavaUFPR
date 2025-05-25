@@ -30,7 +30,7 @@ public class SistemaAcademico {
             System.out.println("0 - Sair");
             System.out.print("Digite o número da opção que deseja: ");
             op = s.nextInt();
-            s.nextLine(); // limpar buffer
+            s.nextLine();
 
             switch (op) {
                 case 1:
@@ -56,7 +56,7 @@ public class SistemaAcademico {
 
                     System.out.print("Quantidade de disciplinas permitidas: ");
                     int qtdDisciplinas = s.nextInt();
-                    s.nextLine(); // limpar buffer
+                    s.nextLine(); 
 
                     System.out.print("Endereço: ");
                     String endereco = s.nextLine();
@@ -90,7 +90,7 @@ public class SistemaAcademico {
                     if (aMat.getDisciplinasMatriculadas() == null) {
                         System.out.print("Quantas disciplinas esse aluno pode ter? ");
                         int q = s.nextInt();
-                        s.nextLine(); // limpar buffer
+                        s.nextLine(); 
                         aMat.setDisciplinasMatriculadas(new String[q]);
                     }
 
