@@ -1,0 +1,4 @@
+Construa uma aplicação Swing que converta uma medida de volume expressa
+em litros para sua equivalente expressa em galões, sabendo que 1 galão = 3.785 litros.
+O valor de entrada, em litros, deve ser fornecido em uma caixa de texto JTextField, a
+conversão acionada por um botão JButton e o resultado exibido em um rótulo JLabel.
