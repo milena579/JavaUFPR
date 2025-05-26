@@ -20,8 +20,5 @@ public abstract class VeiculoAereo extends Veiculo {
     }
 
     @Override
-    public void andar() {
-        // TODO Auto-generated method stub
-        
-    }
+    public void andar() {}
 }

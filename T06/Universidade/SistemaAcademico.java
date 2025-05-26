@@ -5,13 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SistemaAcademico {
-    private static List<Aluno> alunos = new ArrayList<>(); // Usar ArrayList para flexibilidade
+    private static List<Aluno> alunos = new ArrayList<>(); 
     private static List<Professor> professores = new ArrayList<>();
     private static List<Disciplina> disciplinas = new ArrayList<>();
     private static Scanner s = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Não precisamos mais perguntar a capacidade inicial para ArrayLists
         new SistemaAcademico().menu();
     }
 

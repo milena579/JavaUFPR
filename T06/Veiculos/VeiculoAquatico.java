@@ -15,8 +15,5 @@ public abstract class VeiculoAquatico extends Veiculo{
     }
 
     @Override
-    public void andar() {
-        // TODO Auto-generated method stub
-        
-    }
+    public void andar() {}
 }

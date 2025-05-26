@@ -14,8 +14,5 @@ public abstract class VeiculoTerrestre extends Veiculo {
     }
 
     @Override
-    public void andar() {
-        // TODO Auto-generated method stub
-        
-    }
+    public void andar() {}
 }
