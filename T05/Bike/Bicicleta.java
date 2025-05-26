@@ -10,7 +10,7 @@
 // d. Os métodos que mudam a marcha devem avaliar se o número máximo de
 // marchas foi alcançado e não permitir a mudança nestes casos. 
 
-package T05;
+package T05.Bike;
 
 public class Bicicleta {
     private double velocidade;
