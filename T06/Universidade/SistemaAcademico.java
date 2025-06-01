@@ -32,7 +32,7 @@ public class SistemaAcademico {
             System.out.println("0  - Sair");
             System.out.print("Digite o número da opção que deseja: ");
             op = s.nextInt();
-            s.nextLine(); // Consome a nova linha
+            s.nextLine();
 
             switch (op) {
                 case 1:
@@ -92,7 +92,7 @@ public class SistemaAcademico {
         String endereco = s.nextLine();
         System.out.print("Idade: ");
         int idade = s.nextInt();
-        s.nextLine(); // Consome a nova linha
+        s.nextLine();
         System.out.print("Matrícula: ");
         String matricula = s.nextLine();
         System.out.print("Curso: ");
@@ -101,7 +101,7 @@ public class SistemaAcademico {
         int periodo = s.nextInt();
         System.out.print("Quantidade de disciplinas permitidas: ");
         int qtdDisciplinas = s.nextInt();
-        s.nextLine(); // Consome a nova linha
+        s.nextLine();
 
         Aluno novoAluno = new Aluno(nome, endereco, idade, matricula, curso, periodo, qtdDisciplinas);
         alunos.add(novoAluno);
@@ -116,7 +116,7 @@ public class SistemaAcademico {
         String endereco = s.nextLine();
         System.out.print("Idade: ");
         int idade = s.nextInt();
-        s.nextLine(); // Consome a nova linha
+        s.nextLine();
        
 
         Professor novoProfessor = new Professor(nome, endereco, idade);
@@ -132,7 +132,7 @@ public class SistemaAcademico {
         String codigo = s.nextLine();
         System.out.print("Carga Horária: ");
         int cargaHoraria = s.nextInt();
-        s.nextLine(); // Consome a nova linha
+        s.nextLine();
 
         Disciplina novaDisciplina = new Disciplina(nome, codigo, cargaHoraria);
         disciplinas.add(novaDisciplina);
@@ -150,17 +150,16 @@ public class SistemaAcademico {
             return;
         }
 
-        // Antes de excluir o aluno, remova-o das disciplinas em que está matriculado
-        // Isso é importante para manter a integridade dos dados
+       
         List<Disciplina> disciplinasDoAluno = new ArrayList<>(alunoParaExcluir.getDisciplinasMatriculadas());
         for (Disciplina disc : disciplinasDoAluno) {
-            alunoParaExcluir.cancelarMatricula(disc); // Isso também remove o aluno da lista da disciplina
+            alunoParaExcluir.cancelarMatricula(disc); 
         }
 
         if (alunos.remove(alunoParaExcluir)) {
             System.out.println("Aluno " + nomeExcluir + " excluído com sucesso!");
         } else {
-            System.out.println("Erro ao excluir aluno."); // Deveria ser pego pelo null check
+            System.out.println("Erro ao excluir aluno.");
         }
     }
 
@@ -199,7 +198,7 @@ public class SistemaAcademico {
         }
     }
 
-    // --- Métodos de Relacionamento (Matrícula/Atribuição) ---
+   
     public void atribuirProfessorADisciplina() {
         System.out.print("Código da disciplina para atribuir professor: ");
         String codigoDisciplina = s.nextLine();
@@ -219,7 +218,7 @@ public class SistemaAcademico {
             return;
         }
 
-        System.out.println(professor.adicionarDisciplinaMinistrada(disciplina)); // O professor gerencia a atribuição
+        System.out.println(professor.adicionarDisciplinaMinistrada(disciplina)); 
     }
 
     public void matricularAlunoEmDisciplina() {

@@ -12,7 +12,4 @@ public abstract class VeiculoTerrestre extends Veiculo {
     public int getNumeroRodas() {
         return numeroRodas;
     }
-
-    @Override
-    public void andar() {}
 }

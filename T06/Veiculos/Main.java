@@ -25,26 +25,32 @@ public class Main {
 
             System.out.print("Ano Fabricação: ");
             int anoFab = scanner.nextInt();
+            scanner.nextLine();
 
             System.out.print("Capacidade Passageiros: ");
             int capacidadePassageiros = scanner.nextInt();
-            
+            scanner.nextLine();
+
             switch (tipo) {
-                case 1: 
+                case 1: // Carro
                     System.out.print("Número de rodas: ");
                     int rodasCarro = scanner.nextInt();
                     scanner.nextLine();
 
+                    System.out.print("Qtd portas: ");
                     int qtdPortas = scanner.nextInt();
                     scanner.nextLine();
 
-                    double motor = scanner.nextInt();
-                    scanner.nextLine();
+                    System.out.print("Motor (use ponto, ex: 1.6): ");
+                    String motorStr = scanner.nextLine().replace(",", ".");
+                    double motor = Double.parseDouble(motorStr);
 
                     veiculos[i] = new Carro(marca, modelo, anoFab, capacidadePassageiros, rodasCarro, qtdPortas, motor);
+
+                    System.out.println("Carro cadastrado com sucesso!");
                     break;
 
-                case 2: 
+                case 2: // Trem
                     System.out.print("Número de rodas: ");
                     int rodaTrem = scanner.nextInt();
                     scanner.nextLine();
@@ -54,32 +60,39 @@ public class Main {
                     scanner.nextLine();
 
                     veiculos[i] = new Trem(marca, modelo, anoFab, capacidadePassageiros, rodaTrem, qtdVagoes);
+
+                    System.out.println("Trem cadastrado com sucesso!");
                     break;
 
-                case 3: 
+                case 3: // Avião
                     System.out.print("Numero de turbinas: ");
                     int turbinas = scanner.nextInt();
                     scanner.nextLine();
 
-                    System.out.print("Altitude Máxima: ");
-                    double altMax = scanner.nextDouble();
-                    scanner.nextLine();
+                    System.out.print("Altitude Máxima (use ponto): ");
+                    String altStr = scanner.nextLine().replace(",", ".");
+                    double altMax = Double.parseDouble(altStr);
 
                     System.out.print("Denominação: ");
-                    String denominacao = scanner.next();
-                    scanner.next();
+                    String denominacao = scanner.nextLine();
 
                     veiculos[i] = new Aviao(marca, modelo, anoFab, capacidadePassageiros, turbinas, altMax, denominacao);
+
+                    System.out.println("Avião cadastrado com sucesso!");
                     break;
 
                 case 4: // Barco
                     System.out.print("Comprimento: ");
                     int comprimentoBarco = scanner.nextInt();
+                    scanner.nextLine();
 
                     System.out.print("Qtd de velas: ");
                     int velas = scanner.nextInt();
+                    scanner.nextLine();
 
                     veiculos[i] = new Barco(marca, modelo, anoFab, capacidadePassageiros, comprimentoBarco, velas);
+
+                    System.out.println("Barco cadastrado com sucesso!");
                     break;
 
                 default:
@@ -98,4 +111,3 @@ public class Main {
         scanner.close();
     }
 }
-
